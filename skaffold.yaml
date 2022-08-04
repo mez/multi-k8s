@@ -1,0 +1,41 @@
+apiVersion: skaffold/v2beta2
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./k8s/client-depl.yaml
+      - ./k8s/server-depl.yaml
+      - ./k8s/worker-depl.yaml
+      - ./k8s/ingress-srv.yaml
+build:
+  local:
+    push: false
+  artifacts:
+    - image: mezgebre/multi-client
+      context: client
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - dest: .
+            src: "src/**/*.js"
+          - dest: .
+            src: "src/**/*.css"
+          - dest: .
+            src: "src/**/*.html"
+    - image: mezgebre/multi-worker
+      context: worker
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - dest: .
+            src: "*.js"
+    - image: mezgebre/multi-server
+      context: server
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - dest: .
+            src: "*.js"
