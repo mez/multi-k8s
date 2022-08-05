@@ -17,7 +17,7 @@ spec:
       - www.awesom0.com
       secretName: awesom0-com
   rules:
-    - host: awesom0-com
+    - host: awesom0.com
       http:
         paths:
         - pathType: Prefix
@@ -34,8 +34,8 @@ spec:
               name: server-srv
               port: 
                 number: 5000
-                
-    - host: www.awesom0-com
+
+    - host: www.awesom0.com
       http:
         paths:
         - pathType: Prefix
