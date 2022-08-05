@@ -13,12 +13,12 @@ spec:
         app: server
     spec:
       containers:
-      - name: server-depl
+      - name: server
         image: mezgebre/multi-server
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        # resources:
+        #   limits:
+        #     memory: "128Mi"
+        #     cpu: "500m"
         ports:
         - containerPort: 5000
         env:
