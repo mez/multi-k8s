@@ -58,6 +58,6 @@ jobs:
       - name: Apply
         run: |-
           kubectl apply -f k8s
-          kubectl set image deployments/server-deployment server=mezgebre/multi-server:${{ env.SHA }}
-          kubectl set image deployments/client-deployment client=mezgebre/multi-client-k8s-gh:${{ env.SHA }}
-          kubectl set image deployments/worker-deployment worker=mezgebre/multi-worker-k8s-gh:${{ env.SHA }}
+          kubectl set image deployments/server-depl server=mezgebre/multi-server:${{ env.SHA }}
+          kubectl set image deployments/client-depl client=mezgebre/multi-client:${{ env.SHA }}
+          kubectl set image deployments/worker-depl worker=mezgebre/multi-worker:${{ env.SHA }}
