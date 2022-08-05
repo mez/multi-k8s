@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+ 
+kind: Certificate
+metadata:
+  name: awesom0-com-tls
+spec:
+  secretName: awesom0-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: awesom0.com
+  dnsNames:
+    - awesom0.com
+    - www.awesom0.com
